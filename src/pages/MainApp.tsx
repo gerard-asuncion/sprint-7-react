@@ -1,9 +1,10 @@
+import Header from "../components/ui/Header"
 
 const MainApp = () => {
   return (
-    <div>
-      
-    </div>
+    <section>
+      <Header></Header>
+    </section>
   )
 }
 
