@@ -3,7 +3,7 @@ import MoviesGrid from "../components/ui/MoviesGrid"
 
 const MainApp = () => {
   return (
-    <section>
+    <section className="bg-black">
       <Header></Header>
       <MoviesGrid></MoviesGrid>
     </section>

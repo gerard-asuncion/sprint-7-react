@@ -27,9 +27,9 @@ const MoviesGrid = () => {
                 `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`
                 );
                 if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
-                                
+
                 const data = await res.json();
-            
+
                 setMovies((prev) => [...prev, ...data.results]);
                 setTotalPages(data.total_pages);
             } catch (err) {
@@ -40,8 +40,6 @@ const MoviesGrid = () => {
         };
 
         fetchMovies();
-
-        console.log(totalPages)
 
     }, [page])
 
@@ -63,38 +61,21 @@ const MoviesGrid = () => {
     }, [loading, page, totalPages]);
 
   return (
-    <div>
-        <h1>Películas Populares</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            {movie.poster_path ? (
-              <img
-                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                alt={movie.title}
-                style={{ width: "300px", borderRadius: "10px" }}
-              />
-            ) : (
-              <div
-                style={{
-                  width: "200px",
-                  height: "300px",
-                  background: "#ccc",
-                  borderRadius: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              > {movie.title}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {loading && <p>Cargando más películas...</p>}
-      
-    </div>
+		<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-2 max-w-95/100 mx-auto">
+			{movies.map((movie) => (
+				<div key={movie.id}>
+					{movie.poster_path ? (
+						<img
+							src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+							alt={movie.title}
+							className="rounded-lg"
+						/>
+					) : (
+						<div className="bg-gray-500 rounded-lg flex items-center justify-center">{movie.title}</div>
+					)}
+				</div>
+			))}
+		</div>
   )
 }
 
