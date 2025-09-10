@@ -63,7 +63,7 @@ const MoviesGrid = () => {
   return (
 		<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-2 max-w-95/100 mx-auto">
 			{movies.map((movie) => (
-				<div key={movie.id}>
+				<div key={movie.id} className="cursor-pointer transition-transform duration-300 transform hover:scale-102">
 					{movie.poster_path ? (
 						<img
 							src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
