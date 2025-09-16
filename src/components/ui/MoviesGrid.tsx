@@ -48,7 +48,7 @@ const MoviesGrid = () => {
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
             if (
-                scrollTop + clientHeight >= scrollHeight &&
+                scrollTop + clientHeight >= scrollHeight - 100 &&
                 !loading &&
                 page < totalPages
             ) {
