@@ -1,5 +1,5 @@
-import Header from "../components/ui/Header"
-import MoviesGrid from "../components/ui/MoviesGrid"
+import Header from "../components/Header"
+import MoviesGrid from "../components/MoviesGrid"
 
 const MainApp = () => {
   return (
@@ -8,6 +8,7 @@ const MainApp = () => {
       <MoviesGrid></MoviesGrid>
     </section>
   )
+
 }
 
 export default MainApp

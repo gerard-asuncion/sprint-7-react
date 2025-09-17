@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import type { Movie, MoviesState } from '../types/types'
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -19,7 +19,7 @@ export const fetchMovies = createAsyncThunk<
 
       return response.data;
     } catch (error: unknown) {
-    
+
       let message = 'Error desconocido';
 
       if(axios.isAxiosError(error)){
@@ -33,7 +33,7 @@ export const fetchMovies = createAsyncThunk<
       } else if (error instanceof Error){
         message = error.message
       }
-      
+
       return rejectWithValue(message);
     }
   }

@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchMovies } from "../../store/moviesSlice"
-import type { RootState, AppDispatch } from "../../store/store"
-import type { Movie } from "../../types/types"
+import { useNavigate } from "react-router-dom"
+import { fetchMovies } from "../store/moviesSlice"
+import type { RootState, AppDispatch } from "../store/store"
+import type { Movie } from "../types/types"
 
 const MoviesGrid = () => {
 
     const dispatch = useDispatch<AppDispatch>();
+		const navigate = useNavigate();
 
     // Página local (para scroll infinito)
     const [page, setPage] = useState<number>(1);
@@ -46,6 +48,7 @@ const MoviesGrid = () => {
             <div
                 key={movie.id}
                 className="cursor-pointer transition-transform duration-300 transform hover:scale-102"
+								onClick={() => navigate(`/movie/${movie.id}`)}
             >
                 {movie.poster_path ? (
                 <img
