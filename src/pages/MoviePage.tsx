@@ -1,5 +1,5 @@
 import Header from "../components/Header"
-import MovieDetail from "../components/MovieDetailComponent"
+import MovieDetail from "../components/MovieDetail"
 
 const MoviePage = () => {
 	return (
