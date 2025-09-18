@@ -18,11 +18,13 @@ const Header = () => {
   }
 
   return (
-		<header className="bg-blue-950 text-blue-950 py-6 mb-10 text-center">
-			<div className="inline-flex flex-col px-6 py-4 mx-auto rounded-2xl bg-gray-100 shadow-xl gap-3">
+		<header className="bg-blue-950 text-blue-950 flex flex-col justify-between items-center gap-8 py-10 mb-10">
+			<div className="px-6 py-4 rounded-2xl bg-gray-100 shadow-xl">
 				<h1 className="text-3xl font-bold tracking-wide">
 					MOVIES DIRECTORY
 				</h1>
+			</div>
+			<div className="text-gray-100 text-xl font-bold">
 				{movieTitle && (
         	<h2 className="text-xl">{movieTitle}</h2>
       	)}
