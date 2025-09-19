@@ -3,9 +3,11 @@ import MovieDetail from "../components/MovieDetail"
 
 const MoviePage = () => {
 	return (
-		<section className="bg-black">
-      <Header></Header>
-			<MovieDetail></MovieDetail>
+		<section className="flex flex-col h-screen bg-black">
+      <Header />
+      <div className="flex-grow">
+        <MovieDetail />
+      </div>
     </section>
 	)
 }
