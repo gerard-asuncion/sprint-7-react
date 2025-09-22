@@ -4,43 +4,13 @@ import { useNavigate } from "react-router-dom"
 import { fetchMovies } from "../store/moviesSlice"
 import type { RootState, AppDispatch } from "../store/store"
 import type { Movie } from "../types/types"
+import { useMoviesGrid } from "../hooks/useMoviesGrid"
 
 const MoviesGrid = () => {
 
-    const dispatch = useDispatch<AppDispatch>();
-		const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // Página local (para scroll infinito)
-    const [page, setPage] = useState<number>(1);
-
-    // Accede al estado desde Redux
-    const movies = useSelector((state: RootState) => state.movies.items);
-    const loading = useSelector((state: RootState) => state.movies.loading);
-    const totalPages = useSelector((state: RootState) => state.movies.totalPages);
-    const error = useSelector((state: RootState) => state.movies.error);
-
-    // Disparar la llamada a la API cuando cambia la página
-    useEffect(() => {
-        dispatch(fetchMovies(page));
-    }, [dispatch, page]);
-
-    // Scroll infinito
-    useEffect(() => {
-        const handleScroll = () => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-        if (
-            scrollTop + clientHeight >= scrollHeight - 100 &&
-            !loading &&
-            page < totalPages
-        ) {
-            setPage((prev) => prev + 1);
-        }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [loading, page, totalPages]);
+	const { movies, loading, error } = useMoviesGrid();
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-2 max-w-95/100 mx-auto">
