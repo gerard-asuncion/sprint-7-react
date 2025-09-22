@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import type { MovieDetails, CrewMember, CreditsResponse, Director, MovieDetailState } from '../types/types'
+import type { MovieDetails, CrewMember, CreditsResponse, MovieDetailState } from '../types/types'
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 

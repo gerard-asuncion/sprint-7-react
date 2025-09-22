@@ -1,8 +1,4 @@
-import { useState, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { fetchMovies } from "../store/moviesSlice"
-import type { RootState, AppDispatch } from "../store/store"
 import type { Movie } from "../types/types"
 import { useMoviesGrid } from "../hooks/useMoviesGrid"
 
