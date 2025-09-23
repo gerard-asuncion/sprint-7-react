@@ -1,3 +1,5 @@
+import type { Session } from "@supabase/supabase-js";
+
 export interface Movie {
     id: number;
     title: string;
@@ -42,3 +44,8 @@ export interface MovieDetailState {
   loading: boolean;
   error: string | null;
 }
+
+export type AuthData = {
+	loading: boolean;
+	session: Session | null;
+};
