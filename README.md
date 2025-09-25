@@ -1,69 +1,76 @@
-# React + TypeScript + Vite
+# Movies Directory (Sprint 7 - React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un directori de pel·lícules populars, veure'n els detalls i gestionar la seva sessió d'usuari. L'autenticació es gestiona amb **Supabase** i l'estat global de l'aplicació amb **Redux Toolkit**.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologies Utilitzades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Framework Principal**: React 19 amb Vite
+* **Llenguatge**: TypeScript
+* **Estils**: Tailwind CSS
+* **Gestió d'Estat**: Redux Toolkit
+* **Autenticació**: Supabase
+* **Routing**: React Router DOM
+* **Crides a l'API**: Axios
+* **Testing**: Jest i React Testing Library
 
-## Expanding the ESLint configuration
+## 📋 Requisits
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Node.js (versió 18.x o superior)
+* NPM (s'instal·la amb Node.js)
+* Compte a Supabase
+* Clau d'API de The Movie Database (TMDB)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 Instal·lació i Desplegament
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1.  **Clona el repositori:**
+    ```bash
+    git clone [https://github.com/gerard-asuncion/sprint-7-react.git](https://github.com/gerard-asuncion/sprint-7-react.git)
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2.  **Navega a la carpeta del projecte:**
+    ```bash
+    cd sprint-7-react
+    ```
+
+3.  **Instal·la les dependències:**
+    ```bash
+    npm install
+    ```
+
+4.  **Configura les variables d'entorn:**
+    Crea un arxiu `.env` a l'arrel del projecte i afegeix les teves claus:
+    ```
+    VITE_APP_SUPABASE_URL=LA_TEVA_URL_DE_SUPABASE
+    VITE_APP_SUPABASE_ANON_KEY=LA_TEVA_CLAU_ANON_DE_SUPABASE
+    VITE_TMDB_API_KEY=LA_TEVA_CLAU_DE_TMDB
+    ```
+
+5.  **Executa el projecte:**
+    ```bash
+    npm run dev
+    ```
+
+6.  **Executa els tests:**
+    ```bash
+    npm test
+    ```
+
+## 📁 Estructura de Carpetes
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+/
+├── public/
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│   ├── providers/
+│   ├── store/
+│   ├── types/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── .env
+├── jest.config.js
+├── package.json
+└── tsconfig.json
