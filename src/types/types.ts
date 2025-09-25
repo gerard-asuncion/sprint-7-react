@@ -1,4 +1,5 @@
 import type { Session } from "@supabase/supabase-js";
+import type { ReactNode } from "react";
 
 export interface Movie {
     id: number;
@@ -49,3 +50,12 @@ export type AuthData = {
 	loading: boolean;
 	session: Session | null;
 };
+
+export interface AuthContextType {
+  session: Session | null;
+  loading: boolean;
+}
+
+export interface AuthProviderProps {
+  children: ReactNode;
+}

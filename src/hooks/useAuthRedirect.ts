@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, type NavigateFunction } from 'react-router-dom';
 import { useAuth } from '../providers/AuthProvider';
 
-/**
- * Hook que redirige al usuario a la página principal ('/') si ya tiene una sesión activa.
- */
-export const useAuthRedirect = () => {
+const useAuthRedirect = () => {
   const { session } = useAuth();
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
 
   useEffect(() => {
     if (session) {
@@ -15,3 +12,5 @@ export const useAuthRedirect = () => {
     }
   }, [session, navigate]);
 };
+
+export default useAuthRedirect;

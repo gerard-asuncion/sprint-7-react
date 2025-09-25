@@ -1,7 +1,7 @@
 import Header from "../components/Header"
 import MoviesGrid from "../components/MoviesGrid"
 
-const MainApp = () => {
+const MainPage = () => {
   return (
     <section className="bg-black">
       <Header></Header>
@@ -11,4 +11,4 @@ const MainApp = () => {
 
 }
 
-export default MainApp
+export default MainPage

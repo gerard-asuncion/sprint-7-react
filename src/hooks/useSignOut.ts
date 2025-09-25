@@ -1,26 +1,36 @@
 import { useState } from 'react';
-import { supabase } from '../providers/AuthProvider'; // Asegúrate que la ruta sea correcta
+import { supabase } from '../providers/AuthProvider';
 
 export const useSignOut = () => {
-  const [loading, setLoading] = useState(false);
+
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
   async function signOut() {
+		
     try {
       setLoading(true);
-      setError(null); // Limpia errores previos
+      setError(null);
 
       const { error: signOutError } = await supabase.auth.signOut();
 
-      // Si Supabase devuelve un error, lánzalo para que lo capture el 'catch'
       if (signOutError) {
         throw signOutError;
       }
-    } catch (err: any) {
-      setError(err);
-      console.error("Error signing out:", err.message);
+
+    } catch (err: unknown) {
+
+      if (err instanceof Error) {
+        setError(err);
+        console.error("Error signing out:", err.message);
+      } else {
+        const unknownError = new Error('Ocurrió un error inesperado al cerrar sesión');
+        setError(unknownError);
+        console.error("Error signing out:", unknownError);
+      }
+
     } finally {
-      setLoading(false); // Asegúrate de que el loading termine siempre
+      setLoading(false);
     }
   }
 

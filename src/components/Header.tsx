@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import useSignOut from '../hooks/useSignOut';
+import { addMarginBottom } from "../utils/utils";
 
 const Header = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +15,7 @@ const Header = () => {
   };
 
   return (
-		<header className="bg-blue-950 text-blue-950 flex flex-col justify-between items-center gap-8 py-10 mb-10 h-40">
+		<header className={`bg-blue-950 text-blue-950 flex flex-col justify-between items-center gap-8 py-10 h-40 ${addMarginBottom(!isMoviePage, 10)}`}>
 			<div className="px-6 py-4 rounded-2xl bg-gray-100 shadow-xl">
 				{isMoviePage ? (
           <Link to="/" className="font-bold cursor-pointer text-center">
@@ -28,7 +29,7 @@ const Header = () => {
 			<div className="absolute top-0 right-0 p-6">
 				<button
 					onClick={() => handleSignOutClick()}
-					className="hover:bg-gray-100 bg-blue-950 hover:text-blue-950 text-gray-100 border-gray-100 border-2 font-bold py-2 px-4 rounded-lg shadow-md transition duration-200"
+					className="hover:bg-gray-100 bg-blue-950 hover:text-blue-950 text-gray-100 border-gray-100 border-2 font-bold py-2 px-4 rounded-lg"
 				>
 					Sign Out
 				</button>

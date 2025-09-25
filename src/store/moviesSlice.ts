@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import type { Movie, MoviesState } from '../types/types'
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const API_KEY: string = import.meta.env.VITE_TMDB_API_KEY;
 
 export const fetchMovies = createAsyncThunk<
 { results: Movie[]; total_pages: number }, number, { rejectValue: string }>(
@@ -20,7 +20,7 @@ export const fetchMovies = createAsyncThunk<
       return response.data;
     } catch (error: unknown) {
 
-      let message = 'Error desconocido';
+      let message: string = 'Error desconocido';
 
       if(axios.isAxiosError(error)){
         if (error.response) {
@@ -74,4 +74,5 @@ const moviesSlice = createSlice({
 });
 
 export const { clearMovies } = moviesSlice.actions;
+
 export default moviesSlice.reducer;

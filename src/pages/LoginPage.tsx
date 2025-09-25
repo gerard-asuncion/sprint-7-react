@@ -1,12 +1,11 @@
 import { Auth } from '@supabase/auth-ui-react';
 import { supabase } from '../providers/AuthProvider';
-import { useAuthRedirect } from '../hooks/useAuthRedirect';
+import useAuthRedirect from '../hooks/useAuthRedirect';
 
 function LoginPage() {
-  // 2. Llama al hook para activar la lógica de redirección
+
   useAuthRedirect();
 
-  // El resto del componente se dedica únicamente a mostrar la UI
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
