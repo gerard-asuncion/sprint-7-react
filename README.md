@@ -66,8 +66,6 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
     npm build
     ```
 
-  
-
 ## 📁 Estructura de Carpetes
 
 ```
@@ -124,90 +122,8 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
 └── vite.config.ts
 ```
 
-## ✨ Fragments de Codi d'Exemple
+## Contribucions
 
-#### Hook per al detall d'una pel·lícula (`useMovieDetail.ts`)
+  Les contribucions són benvingudes! Per favor, segueix els següents passos per a contribuir:
 
-Aquest *custom hook* encapsula tota la lògica per obtenir les dades d'una pel·lícula.
-
-```typescript
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovieDetails, clearMovieDetail } from '../store/moviesDetailSlice';
-import type { RootState, AppDispatch } from '../store/store';
-
-export const useMovieDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const dispatch = useDispatch<AppDispatch>();
-
-  const { details, director, loading, error } = useSelector(
-    (state: RootState) => state.movieDetail
-  );
-
-  useEffect(() => {
-    if (id) {
-      dispatch(fetchMovieDetails(Number(id)));
-    }
-
-    return () => {
-      dispatch(clearMovieDetail());
-    };
-  }, [dispatch, id]);
-
-  return { id, details, director, loading, error };
-};
-```
-
-#### Slice de Redux per a la llista de pel·lícules (`moviesSlice.ts`)
-
-Aquest *slice* de Redux gestiona l'estat de la graella de pel·lícules amb `createAsyncThunk`.
-
-```typescript
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import type { Movie, MoviesState } from '../types/types'
-
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-
-export const fetchMovies = createAsyncThunk<
-{ results: Movie[]; total_pages: number }, number, { rejectValue: string }>(
-  'movies/fetchMovies',
-  async (page: number = 1, { rejectWithValue }) => {
-    try {
-      const response = await axios.get('[https://api.themoviedb.org/3/movie/popular](https://api.themoviedb.org/3/movie/popular)', {
-        params: {
-          api_key: API_KEY,
-          language: 'es-ES',
-          page,
-        },
-      });
-      return response.data;
-    } catch (error: unknown) {
-      // ...manejo de errores...
-    }
-  }
-);
-```
-
-#### Test d'un component (`Header.test.tsx`)
-
-Exemple de test unitari per al component `Header` que verifica el renderitzat condicional.
-
-```tsx
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import Header from '../Header';
-
-describe('Header', () => {
-  it('debería mostrar solo el título en la página principal', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <Header />
-      </Memory-Router>
-    );
-    expect(screen.getByText('MOVIES DIRECTORY')).toBeInTheDocument();
-    expect(screen.queryByText('return to main menu')).not.toBeInTheDocument();
-  });
-});
-```
+  Fes un fork del repositori Crea una nova branca git checkout -b feature/NovaFuncionalitat Fes els teus canvis i commiteja'ls: git commit -m 'Afegeix Nova Funcionalitat' Puja els canvis a la teva branca: git push origin feature/NovaFuncionalitat Fes un pull request
