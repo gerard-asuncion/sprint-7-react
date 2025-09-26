@@ -71,22 +71,57 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
 ## 📁 Estructura de Carpetes
 
 ```
-/
-├── public/
-├── src/
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── providers/
-│   ├── store/
-│   ├── types/
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── .env
+.
+├── .editorconfig
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
 ├── jest.config.js
+├── jest.setup.js
+├── package-lock.json
 ├── package.json
-└── tsconfig.json
+├── public/
+│   └── film-icon.svg
+├── src/
+│   ├── App.tsx
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── MovieDetail.tsx
+│   │   ├── MoviesGrid.tsx
+│   │   └── ProtectedRoute.tsx
+│   ├── hooks/
+│   │   ├── useAuthRedirect.ts
+│   │   ├── useMovieDetail.ts
+│   │   ├── useMoviesGrid.ts
+│   │   └── useSignOut.ts
+│   ├── index.css
+│   ├── lib/
+│   │   └── supabase.ts
+│   ├── main.tsx
+│   ├── pages/
+│   │   ├── LoginPage.tsx
+│   │   ├── MainPage.tsx
+│   │   └── MoviePage.tsx
+│   ├── providers/
+│   │   ├── AuthContext.tsx
+│   │   └── AuthProvider.tsx
+│   ├── store/
+│   │   ├── __tests__/
+│   │   │   ├── moviesDetailSlice.test.ts
+│   │   │   └── moviesSlice.test.ts
+│   │   ├── moviesDetailSlice.ts
+│   │   ├── moviesSlice.ts
+│   │   └── store.tsx
+│   ├── types/
+│   │   └── types.ts
+│   ├── utils/
+│   │   └── utils.ts
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
 ## ✨ Fragments de Codi d'Exemple
