@@ -64,18 +64,13 @@ const moviesSlice = createSlice({
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loading = false;
 
-        // --- CANVI CLAU AQUÍ ---
-        // Crea un conjunt (Set) amb els IDs de les pel·lícules que ja tenim
         const existingMovieIds = new Set(state.items.map(movie => movie.id));
 
-        // Filtra les noves pel·lícules per afegir només les que no existeixen
         const newMovies = action.payload.results.filter(
           movie => !existingMovieIds.has(movie.id)
         );
 
-        // Afegeix només les pel·lícules úniques a l'estat
         state.items = [...state.items, ...newMovies];
-        // --- FI DEL CANVI ---
 
         state.totalPages = action.payload.total_pages;
       })
