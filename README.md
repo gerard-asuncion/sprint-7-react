@@ -113,8 +113,6 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
 │   │   └── store.tsx
 │   ├── types/
 │   │   └── types.ts
-│   ├── utils/
-│   │   └── utils.ts
 │   └── vite-env.d.ts
 ├── tsconfig.app.json
 ├── tsconfig.json
