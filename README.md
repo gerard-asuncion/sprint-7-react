@@ -25,7 +25,7 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
 
 1.  **Clona el repositori:**
     ```bash
-    git clone [https://github.com/gerard-asuncion/sprint-7-react.git](https://github.com/gerard-asuncion/sprint-7-react.git)
+    git clone https://github.com/gerard-asuncion/sprint-7-react.git
     ```
 
 2.  **Navega a la carpeta del projecte:**
