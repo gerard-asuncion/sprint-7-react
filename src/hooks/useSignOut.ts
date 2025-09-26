@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../providers/AuthProvider';
+import { supabase } from '../lib/supabase';
 
 export const useSignOut = () => {
 
@@ -7,7 +7,7 @@ export const useSignOut = () => {
   const [error, setError] = useState<Error | null>(null);
 
   async function signOut() {
-		
+
     try {
       setLoading(true);
       setError(null);

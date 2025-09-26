@@ -57,14 +57,14 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
     ```
 
 7.  **Revisa errors:**
-  ```bash
-  npm lint
-  ```
+    ```bash
+    npm run lint
+    ```
 
 8.  **Crea la versió final de l'aplicació, llesta per a producció:**
-  ```bash
-  npm build
-  ```
+    ```bash
+    npm build
+    ```
 
   
 

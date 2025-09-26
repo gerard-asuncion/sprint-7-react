@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, type NavigateFunction } from 'react-router-dom';
-import { useAuth } from '../providers/AuthProvider';
+import { useAuth } from '../providers/AuthContext';
 
 const useAuthRedirect = () => {
   const { session } = useAuth();

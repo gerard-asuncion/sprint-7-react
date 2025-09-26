@@ -1,5 +1,5 @@
 import { Auth } from '@supabase/auth-ui-react';
-import { supabase } from '../providers/AuthProvider';
+import { supabase } from '../lib/supabase';
 import useAuthRedirect from '../hooks/useAuthRedirect';
 
 function LoginPage() {

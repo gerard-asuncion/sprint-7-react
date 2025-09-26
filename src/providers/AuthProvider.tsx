@@ -1,24 +1,15 @@
-import { createContext, useState, useEffect, useContext } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { useState, useEffect } from "react";
+import type { ReactNode } from "react";
 import type { Session } from '@supabase/supabase-js';
-import type { AuthContextType, AuthProviderProps } from "../types/types"
+import { supabase } from "../lib/supabase";
+import { AuthContext } from "./AuthContext";
+import type { AuthContextType } from "../types/types";
 
-const supabase = createClient(
-	import.meta.env.VITE_APP_SUPABASE_URL,
-	import.meta.env.VITE_APP_SUPABASE_ANON_KEY
-);
-
-const AuthContext = createContext<AuthContextType>({
-  session: null,
-  loading: true
-});
-
-export function AuthProvider({ children }: AuthProviderProps) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
@@ -31,16 +22,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const value = {
-    session,
-    loading,
-  };
+  const value: AuthContextType = { session, loading };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }
-
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
-
-export { supabase };
