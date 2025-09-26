@@ -63,7 +63,7 @@ Aquesta aplicació web, desenvolupada amb React, permet als usuaris explorar un 
 
 8.  **Crea la versió final de l'aplicació, llesta per a producció:**
     ```bash
-    npm build
+    npm run build
     ```
 
 ## 📁 Estructura de Carpetes
